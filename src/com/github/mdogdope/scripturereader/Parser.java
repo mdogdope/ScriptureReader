@@ -98,7 +98,6 @@ public class Parser {
 			line = buff.toString();
 			
 		}
-		System.out.println(line);
 		return line;
 	}
 }
