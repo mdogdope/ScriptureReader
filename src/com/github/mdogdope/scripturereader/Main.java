@@ -1,11 +1,38 @@
 package com.github.mdogdope.scripturereader;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Vector;
+
 public class Main {
 	
 	
 	public static void main(String[] args) {
-//		new Scraper();
-		new Parser();
+		
+		Vector<BookData> chData = getChData();
+//		new Scraper(chData);
+//		new Parser(chData);
 	}
-
+	
+	private static Vector<BookData> getChData(){
+		Vector<BookData> rData = new Vector<BookData>();
+		try {
+			BufferedReader chData = new BufferedReader(new FileReader("bookchCount.txt"));
+			while(chData.ready()) {
+				String raw = chData.readLine();
+				String[] data = raw.split(":");
+				BookData temp = new BookData();
+				temp.name = data[0];
+				temp.chapters = Integer.parseInt(data[1]);
+				rData.add(temp);
+			}
+			
+			chData.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rData;
+	}
 }
