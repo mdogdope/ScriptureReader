@@ -13,7 +13,7 @@ import org.jsoup.nodes.Document;
 public class Scraper {
 	
 	
-	public Scraper(Vector<BookData> chData) {
+	public Scraper(Vector<ChapterData> chData) {
 		
 		for(int i = 0; i < chData.size(); i++) {
 			for(int ii = 1; ii <= chData.elementAt(i).chapters; ii++) {

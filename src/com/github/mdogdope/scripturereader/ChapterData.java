@@ -1,6 +1,6 @@
 package com.github.mdogdope.scripturereader;
 
-public class BookData {
+public class ChapterData {
 	public String name = "";
 	public Integer chapters = 0;
 }

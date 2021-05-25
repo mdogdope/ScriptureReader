@@ -10,7 +10,7 @@ import java.util.Vector;
 
 public class Parser {
 	
-	public Parser(Vector<BookData> chData) {
+	public Parser(Vector<ChapterData> chData) {
 		for(int i = 0; i < chData.size(); i++) {
 			for(int ii = 1; ii <= chData.elementAt(i).chapters; ii++) {
 				System.out.println(String.format("Started Parsing %s - CH%d", chData.elementAt(i).name, ii));

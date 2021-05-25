@@ -28,14 +28,14 @@ public class Main {
 		 */
 	}
 	
-	private static Vector<BookData> getChData(){
-		Vector<BookData> rData = new Vector<BookData>();
+	private static Vector<ChapterData> getChData(){
+		Vector<ChapterData> rData = new Vector<ChapterData>();
 		try {
 			BufferedReader chData = new BufferedReader(new FileReader("bookchCount.txt"));
 			while(chData.ready()) {
 				String raw = chData.readLine();
 				String[] data = raw.split(":");
-				BookData temp = new BookData();
+				ChapterData temp = new ChapterData();
 				temp.name = data[0];
 				temp.chapters = Integer.parseInt(data[1]);
 				rData.add(temp);
