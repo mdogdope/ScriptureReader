@@ -5,5 +5,14 @@ public class Block {
 	public Integer chapter = 0;
 	public Integer start = 0;
 	public Integer end = 0;
+	
+	public Block() {
+		
+	}
+	
+	public Block(String book) {
+		this.book = book;
+	}
+	
 }
 
