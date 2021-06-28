@@ -10,7 +10,12 @@ import java.util.Vector;
 
 public class Parser {
 	
-	public Parser(Vector<ChapterData> chData) {
+	private Vector<ChapterData> chData = new Vector<ChapterData>();
+	
+	public Parser() {
+		
+		this.chData = getChData();
+		
 		for(int i = 0; i < chData.size(); i++) {
 			for(int ii = 1; ii <= chData.elementAt(i).chapters; ii++) {
 				System.out.println(String.format("Started Parsing %s - CH%d", chData.elementAt(i).name, ii));
@@ -99,5 +104,26 @@ public class Parser {
 			
 		}
 		return line;
+	}
+	
+	private static Vector<ChapterData> getChData(){
+		Vector<ChapterData> rData = new Vector<ChapterData>();
+		try {
+			BufferedReader chData = new BufferedReader(new FileReader("bookchCount.txt"));
+			while(chData.ready()) {
+				String raw = chData.readLine();
+				String[] data = raw.split(":");
+				ChapterData temp = new ChapterData();
+				temp.name = data[0];
+				temp.chapters = Integer.parseInt(data[1]);
+				rData.add(temp);
+			}
+			
+			chData.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return rData;
 	}
 }
