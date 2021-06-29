@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.util.HashMap;
 
 public class Settings {
-	
+
 	private final String[] defaultConfig = { "exportDirectory:./Exports/", "verseMark:-", "blockDirectory:./Saves" };
-	
+
 	private File settingsFile = new File("./config.cfg");
 
 	private HashMap<String, String> settings = new HashMap<String, String>();
@@ -31,7 +31,11 @@ public class Settings {
 					continue;
 				}
 				String[] parts = line.split(":");
-				settings.put(parts[0], parts[1]);
+				if (parts.length > 1) {
+					settings.put(parts[0], "");
+				} else {
+					settings.put(parts[0], parts[1]);
+				}
 			}
 
 			reader.close();
@@ -40,27 +44,27 @@ public class Settings {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public File exportDirectory() {
 		return new File(settings.get("exportDirectory"));
 	}
-	
+
 	public String verseMark() {
 		return settings.get("verseMark");
 	}
-	
+
 	public File saveDirectory() {
 		return new File(settings.get("saveDirectory"));
 	}
-	
+
 	public void saveConfig() {
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(settingsFile));
 			String[] keys = (String[]) settings.keySet().toArray();
-			for(int i = 0; i < keys.length; i++) {
+			for (int i = 0; i < keys.length; i++) {
 				writer.write(String.format("%s:%s\n", keys[i], settings.get(keys[i])));
 			}
-			
+
 			writer.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
