@@ -14,5 +14,19 @@ public class Block {
 		this.book = book;
 	}
 	
+	public Block(String book, int chapter, int start) {
+		this.book = book;
+		this.chapter = chapter;
+		this.start = start;
+		this.end = start;
+	}
+	
+	public Block(String book, int chapter, int start, int end) {
+		this.book = book;
+		this.chapter = chapter;
+		this.start = start;
+		this.end = end;
+	}
+	
 }
 

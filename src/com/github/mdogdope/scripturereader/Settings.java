@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class Settings {
 	
-	private final String[] defaultConfig = { "saveDirectory:./Exports/", "verseMark:#", "blockDirectory:./Saves" };
+	private final String[] defaultConfig = { "exportDirectory:./Exports/", "verseMark:-", "blockDirectory:./Saves" };
 	
 	private File settingsFile = new File("./config.cfg");
 
