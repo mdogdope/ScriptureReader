@@ -60,7 +60,7 @@ public class UI {
 		String[] specialItems = { "?: Display help", "Q: Quit" };
 
 		for (int i = 0; i < menuItems.length; i++) {
-//			System.out.println(Integer.toString(i + 1) + ": " + menuItems[i]);
+			System.out.println(Integer.toString(i + 1) + ": " + menuItems[i]);
 		}
 
 		for (int i = 0; i < specialItems.length; i++) {
