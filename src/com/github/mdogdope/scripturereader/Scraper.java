@@ -18,6 +18,11 @@ public class Scraper {
 	
 	public Scraper() {
 		
+		File rawDir = new File("BookOfMormonRaw");
+		if(!rawDir.exists()) {
+			rawDir.mkdir();
+		}
+		
 		this.chData = getChData();
 		
 		for(int i = 0; i < chData.size(); i++) {

@@ -14,6 +14,11 @@ public class Parser {
 	
 	public Parser() {
 		
+		File rawDir = new File("BookOfMormonData");
+		if(!rawDir.exists()) {
+			rawDir.mkdir();
+		}
+		
 		this.chData = getChData();
 		
 		for(int i = 0; i < chData.size(); i++) {
